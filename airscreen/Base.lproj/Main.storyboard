@@ -29,7 +29,7 @@
             </objects>
             <point key="canvasLocation" x="1572" y="-999"/>
         </scene>
-        <!--목록-->
+        <!--승객 예고-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PassengerNoticeViewContoller" customModule="airscreen" customModuleProvider="target" sceneMemberID="viewController">
@@ -48,13 +48,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="목록" image="list.bullet.rectangle" catalog="system" id="R1m-FM-oBm"/>
+                    <tabBarItem key="tabBarItem" title="승객 예고" image="figure.walk.motion" catalog="system" id="R1m-FM-oBm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="792" y="-262"/>
         </scene>
-        <!--검색-->
+        <!--목록-->
         <scene sceneID="USg-eu-DbC">
             <objects>
                 <viewController id="pwd-6l-RSR" customClass="FlightListViewController" customModule="airscreen" customModuleProvider="target" sceneMemberID="viewController">
@@ -73,13 +73,13 @@
                         <viewLayoutGuide key="safeArea" id="GVO-nG-8vk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="검색" image="magnifyingglass" catalog="system" id="yf6-Jz-vsN"/>
+                    <tabBarItem key="tabBarItem" title="목록" image="list.bullet.rectangle" catalog="system" id="yf6-Jz-vsN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQ4-pb-waB" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1573" y="-263"/>
         </scene>
-        <!--통계-->
+        <!--검색-->
         <scene sceneID="vmS-r0-8S0">
             <objects>
                 <viewController id="rNO-k0-u52" customClass="SearchViewController" customModule="airscreen" customModuleProvider="target" sceneMemberID="viewController">
@@ -98,7 +98,7 @@
                         <viewLayoutGuide key="safeArea" id="2d9-N0-w0D"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="통계" image="info.windshield" catalog="system" id="AS9-73-U5z"/>
+                    <tabBarItem key="tabBarItem" title="검색" image="magnifyingglass" catalog="system" id="AS9-73-U5z"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LgW-Hm-KWw" sceneMemberID="firstResponder"/>
             </objects>
@@ -106,7 +106,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="info.windshield" catalog="system" width="128" height="70"/>
+        <image name="figure.walk.motion" catalog="system" width="128" height="112"/>
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <systemColor name="systemBackgroundColor">
