@@ -32,7 +32,7 @@
         <!--목록-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="airscreen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PassengerNoticeViewContoller" customModule="airscreen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,7 +57,7 @@
         <!--검색-->
         <scene sceneID="USg-eu-DbC">
             <objects>
-                <viewController id="pwd-6l-RSR" customClass="ViewController" customModule="airscreen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pwd-6l-RSR" customClass="FlightListViewController" customModule="airscreen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6jV-8c-SJy">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,7 +82,7 @@
         <!--통계-->
         <scene sceneID="vmS-r0-8S0">
             <objects>
-                <viewController id="rNO-k0-u52" customClass="ViewController" customModule="airscreen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rNO-k0-u52" customClass="SearchViewController" customModule="airscreen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YCN-kE-mhh">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
