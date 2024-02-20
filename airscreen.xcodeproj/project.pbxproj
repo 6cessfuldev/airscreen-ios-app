@@ -12,11 +12,15 @@
 		9D128EC32B725B8D009AEDBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D128EC12B725B8D009AEDBE /* Main.storyboard */; };
 		9D128EC52B725B90009AEDBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D128EC42B725B90009AEDBE /* Assets.xcassets */; };
 		9D128EC82B725B90009AEDBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D128EC62B725B90009AEDBE /* LaunchScreen.storyboard */; };
+		9D8B22E62B83AF7400054D4B /* DepartingFlightsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8B22E52B83AF7400054D4B /* DepartingFlightsList.swift */; };
 		9D917BBA2B809C1B00599784 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D917BB92B809C1B00599784 /* ToDo.swift */; };
 		9D917BBF2B80D94B00599784 /* PassengerNoticeViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D917BBE2B80D94B00599784 /* PassengerNoticeViewContoller.swift */; };
 		9D917BC12B80DC9700599784 /* FlightListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D917BC02B80DC9700599784 /* FlightListViewController.swift */; };
 		9D917BC32B80DCBF00599784 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D917BC22B80DCBF00599784 /* SearchViewController.swift */; };
 		9D917BC72B80F8B700599784 /* CustomNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D917BC62B80F8B700599784 /* CustomNavigationBarView.swift */; };
+		9D9770072B8470AC00AE0063 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9770062B8470AC00AE0063 /* CustomTableViewCell.swift */; };
+		9D97700A2B847DEA00AE0063 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D9770092B847DEA00AE0063 /* Secrets.plist */; };
+		9D9770122B8482F900AE0063 /* Bundle+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9770112B8482F900AE0063 /* Bundle+Extentions.swift */; };
 		9DF27B942B752E2500C10404 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF27B932B752E2500C10404 /* MainTabBarController.swift */; };
 		E6DDB6BD656253C78A4582D5 /* Pods_airscreen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A359C897E8246D7AF5DFDF1 /* Pods_airscreen.framework */; };
 /* End PBXBuildFile section */
@@ -31,11 +35,15 @@
 		9D128EC42B725B90009AEDBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D128EC72B725B90009AEDBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D128EC92B725B90009AEDBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D8B22E52B83AF7400054D4B /* DepartingFlightsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartingFlightsList.swift; sourceTree = "<group>"; };
 		9D917BB92B809C1B00599784 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		9D917BBE2B80D94B00599784 /* PassengerNoticeViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerNoticeViewContoller.swift; sourceTree = "<group>"; };
 		9D917BC02B80DC9700599784 /* FlightListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListViewController.swift; sourceTree = "<group>"; };
 		9D917BC22B80DCBF00599784 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9D917BC62B80F8B700599784 /* CustomNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBarView.swift; sourceTree = "<group>"; };
+		9D9770062B8470AC00AE0063 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		9D9770092B847DEA00AE0063 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
+		9D9770112B8482F900AE0063 /* Bundle+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extentions.swift"; sourceTree = "<group>"; };
 		9DF27B932B752E2500C10404 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		EC6B152419F5A1FA666D324F /* Pods-airscreen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-airscreen.release.xcconfig"; path = "Target Support Files/Pods-airscreen/Pods-airscreen.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +89,7 @@
 		9D128EBA2B725B8D009AEDBE /* airscreen */ = {
 			isa = PBXGroup;
 			children = (
+				9D97700F2B8482D600AE0063 /* utils */,
 				9D917BBB2B80A11900599784 /* controllers */,
 				9D917BB82B809BD600599784 /* models */,
 				9D917BBC2B80A15300599784 /* views */,
@@ -91,6 +100,7 @@
 				9D128EC42B725B90009AEDBE /* Assets.xcassets */,
 				9D128EC62B725B90009AEDBE /* LaunchScreen.storyboard */,
 				9D128EC92B725B90009AEDBE /* Info.plist */,
+				9D9770092B847DEA00AE0063 /* Secrets.plist */,
 			);
 			path = airscreen;
 			sourceTree = "<group>";
@@ -99,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				9D917BB92B809C1B00599784 /* ToDo.swift */,
+				9D8B22E52B83AF7400054D4B /* DepartingFlightsList.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -118,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				9D917BC62B80F8B700599784 /* CustomNavigationBarView.swift */,
+				9D9770062B8470AC00AE0063 /* CustomTableViewCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -127,6 +139,14 @@
 			children = (
 			);
 			path = network;
+			sourceTree = "<group>";
+		};
+		9D97700F2B8482D600AE0063 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				9D9770112B8482F900AE0063 /* Bundle+Extentions.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 		F1ABFAD8A71106B3B5DABC8B /* Pods */ = {
@@ -198,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D97700A2B847DEA00AE0063 /* Secrets.plist in Resources */,
 				9D128EC82B725B90009AEDBE /* LaunchScreen.storyboard in Resources */,
 				9D128EC52B725B90009AEDBE /* Assets.xcassets in Resources */,
 				9D128EC32B725B8D009AEDBE /* Main.storyboard in Resources */,
@@ -253,13 +274,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D9770122B8482F900AE0063 /* Bundle+Extentions.swift in Sources */,
 				9D128EBC2B725B8D009AEDBE /* AppDelegate.swift in Sources */,
 				9D917BC32B80DCBF00599784 /* SearchViewController.swift in Sources */,
+				9D9770072B8470AC00AE0063 /* CustomTableViewCell.swift in Sources */,
 				9D917BBF2B80D94B00599784 /* PassengerNoticeViewContoller.swift in Sources */,
 				9D917BC72B80F8B700599784 /* CustomNavigationBarView.swift in Sources */,
 				9D917BC12B80DC9700599784 /* FlightListViewController.swift in Sources */,
 				9D128EBE2B725B8D009AEDBE /* SceneDelegate.swift in Sources */,
 				9DF27B942B752E2500C10404 /* MainTabBarController.swift in Sources */,
+				9D8B22E62B83AF7400054D4B /* DepartingFlightsList.swift in Sources */,
 				9D917BBA2B809C1B00599784 /* ToDo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -62,22 +63,80 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HGO-32-obv" customClass="CustomNavigationBarView" customModule="airscreen" customModuleProvider="target">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HGO-32-obv" customClass="CustomNavigationBarView" customModule="airscreen" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Title2" id="moR-eV-VQ6"/>
                                 </items>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="s06-eG-VZ2">
+                                <rect key="frame" x="0.0" y="204" width="393" height="565"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="565" id="YpG-Ed-ZHG"/>
+                                </constraints>
+                                <color key="sectionIndexColor" name="DarkBlueColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomTableViewCell" id="IcM-xn-GaQ" customClass="CustomTableViewCell" customModule="airscreen" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="44.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IcM-xn-GaQ" id="HkA-Qy-kBD">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHr-K3-AAf">
+                                                    <rect key="frame" x="306" y="12" width="67" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEt-D7-kSa">
+                                                    <rect key="frame" x="166" y="11" width="96" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKy-Wt-GKe">
+                                                    <rect key="frame" x="20" y="11" width="117" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="firstLabel" destination="cKy-Wt-GKe" id="0tb-BP-IaM"/>
+                                            <outlet property="flightIdLabel" destination="uEt-D7-kSa" id="yeH-Bh-cV1"/>
+                                            <outlet property="secondLabel" destination="GHr-K3-AAf" id="57V-NW-WXZ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GVO-nG-8vk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HGO-32-obv" firstAttribute="top" secondItem="GVO-nG-8vk" secondAttribute="top" id="LXe-cN-Jyz"/>
+                            <constraint firstItem="HGO-32-obv" firstAttribute="trailing" secondItem="GVO-nG-8vk" secondAttribute="trailing" id="bIP-rl-km8"/>
+                            <constraint firstItem="s06-eG-VZ2" firstAttribute="bottom" secondItem="GVO-nG-8vk" secondAttribute="bottom" id="bxT-au-Qsg"/>
+                            <constraint firstItem="HGO-32-obv" firstAttribute="leading" secondItem="GVO-nG-8vk" secondAttribute="leading" id="ejo-2L-eMh"/>
+                            <constraint firstItem="s06-eG-VZ2" firstAttribute="trailing" secondItem="GVO-nG-8vk" secondAttribute="trailing" id="rIu-hZ-sai"/>
+                            <constraint firstItem="s06-eG-VZ2" firstAttribute="leading" secondItem="GVO-nG-8vk" secondAttribute="leading" id="sWJ-hG-8M1"/>
+                            <constraint firstItem="s06-eG-VZ2" firstAttribute="leading" secondItem="GVO-nG-8vk" secondAttribute="leading" id="u61-rV-Wwd"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="목록" image="list.bullet.rectangle" catalog="system" id="yf6-Jz-vsN"/>
+                    <connections>
+                        <outlet property="tableView" destination="s06-eG-VZ2" id="ypW-NK-3yD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQ4-pb-waB" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1573" y="-263"/>
+            <point key="canvasLocation" x="1571.7557251908397" y="-263.38028169014086"/>
         </scene>
         <!--검색-->
         <scene sceneID="vmS-r0-8S0">
@@ -109,6 +168,9 @@
         <image name="figure.walk.motion" catalog="system" width="128" height="112"/>
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <namedColor name="DarkBlueColor">
+            <color red="0.10588235294117647" green="0.14901960784313725" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
