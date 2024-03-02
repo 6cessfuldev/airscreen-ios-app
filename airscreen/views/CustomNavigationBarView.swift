@@ -14,7 +14,7 @@ class CustomNavigationBarView: UINavigationBar {
     }
     
     private func setupNavigationBar() {
-        self.barTintColor = .darkestBlue
+        self.barTintColor = .darkBlue
         self.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.lightestBlue
                 ]
