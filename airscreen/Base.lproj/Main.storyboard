@@ -7,6 +7,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -95,7 +96,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="H8J-Tz-yhe">
-                                        <rect key="frame" x="0.0" y="101" width="393" height="565"/>
+                                        <rect key="frame" x="0.0" y="61" width="393" height="605"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="sectionIndexColor" name="DarkBlueColor"/>
@@ -139,6 +140,28 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fFD-FP-X38">
+                                        <rect key="frame" x="68" y="8" width="104" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <menu key="menu" id="zk4-VC-mBG">
+                                            <children>
+                                                <command title="Item 1" id="2gi-B0-B1o"/>
+                                                <command title="Item 2" id="Vvt-Ko-HFy"/>
+                                            </children>
+                                        </menu>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fjj-A0-ADW">
+                                        <rect key="frame" x="199" y="8" width="85" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <menu key="menu" id="kdz-RZ-XQf">
+                                            <children>
+                                                <command title="Item 1" id="RKR-lX-Dlg"/>
+                                                <command title="Item 2" id="WN6-1y-XnW"/>
+                                            </children>
+                                        </menu>
+                                        <state key="normal" title="Button"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="LightestBlueColor"/>
                             </view>
@@ -148,7 +171,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="목록" image="list.bullet.rectangle" catalog="system" id="yf6-Jz-vsN"/>
                     <connections>
+                        <outlet property="counterPopUpBtn" destination="Fjj-A0-ADW" id="5UO-ZG-Egx"/>
                         <outlet property="tableView" destination="H8J-Tz-yhe" id="qeQ-SA-bvx"/>
+                        <outlet property="terminalPopUpBtn" destination="fFD-FP-X38" id="ipc-zr-JYH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQ4-pb-waB" sceneMemberID="firstResponder"/>
