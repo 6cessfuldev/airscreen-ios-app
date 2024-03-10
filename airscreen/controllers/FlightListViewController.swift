@@ -71,7 +71,7 @@ class FlightListViewController : UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return responseData?.response.body.items?.count ?? 0
+        return responseData?.response.body.items?.count ?? 0 + 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -81,6 +81,7 @@ class FlightListViewController : UIViewController, UITableViewDataSource {
             cell.firstLabel.text = flight.airline
             cell.secondLabel.text = flight.airport
             cell.flightIdLabel.text = flight.flightId
+            cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 0.6) : UIColor.lightestBlue
         }
         
         return cell
