@@ -78,13 +78,30 @@ class FlightListViewController : UIViewController, UITableViewDataSource {
         let cell: CustomTableViewCell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
         
         if let flight = responseData?.response.body.items?[indexPath.row] {
-            cell.firstLabel.text = flight.airline
-            cell.secondLabel.text = flight.airport
+            
+            cell.scheduleTimeLabel.text = convertDateFormat(rawDate: flight.scheduleDateTime)
+            cell.changedTimeLabel.text = convertDateFormat(rawDate: flight.estimatedDateTime)
             cell.flightIdLabel.text = flight.flightId
+            cell.airportLabel.text = flight.airport
+            cell.counterLabel.text = flight.chkinrange
+            cell.gateLabel.text = flight.gatenumber
             cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 0.6) : UIColor.lightestBlue
         }
         
         return cell
+    }
+    
+    func convertDateFormat(rawDate: String?) -> String {
+        guard let rawDate = rawDate, !rawDate.isEmpty else { return "" }
+
+        var startIndex = rawDate.index(rawDate.startIndex, offsetBy: 8)
+        var endIndex = rawDate.index(startIndex, offsetBy: 2)
+        let date = rawDate[startIndex..<endIndex]
+        startIndex = rawDate.index(rawDate.startIndex, offsetBy: 10)
+        endIndex = rawDate.index(startIndex, offsetBy: 2)
+        let time = rawDate[startIndex..<endIndex]
+
+      return "\(date):\(time)"
     }
     
     func getTest() {

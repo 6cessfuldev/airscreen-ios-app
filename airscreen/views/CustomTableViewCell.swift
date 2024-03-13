@@ -10,9 +10,12 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var firstLabel: UILabel!
-    @IBOutlet weak var secondLabel: UILabel!
+    @IBOutlet weak var scheduleTimeLabel: UILabel!
+    @IBOutlet weak var changedTimeLabel: UILabel!
     @IBOutlet weak var flightIdLabel: UILabel!
+    @IBOutlet weak var airportLabel: UILabel!
+    @IBOutlet weak var counterLabel: UILabel!
+    @IBOutlet weak var gateLabel: UILabel!
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
