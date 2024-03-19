@@ -9,7 +9,7 @@ import Alamofire
 import UIKit
 import Foundation
 
-class FlightListViewController : UIViewController, UITableViewDataSource {
+class FlightListViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var terminalPopUpBtn: UIButton!
@@ -47,6 +47,7 @@ class FlightListViewController : UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
         print("FlightListViewController - viewDidLoad")
         
         terminalPopUpBtn.menu = UIMenu(title: "터미널", children: terminals.map { item in
@@ -70,8 +71,51 @@ class FlightListViewController : UIViewController, UITableViewDataSource {
       print("Selected terminal: \(selectedTerminal)")
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30))
+        headerView.backgroundColor = UIColor.lightestBlue
+
+        let firstLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width*0.15, height: 30))
+        firstLabel.text = "출발 시간"
+        firstLabel.font = UIFont.systemFont(ofSize: 12)
+        firstLabel.textColor = UIColor.mainBlue
+        firstLabel.textAlignment = NSTextAlignment.center
+        headerView.addSubview(firstLabel)
+        
+        let secondLabel = UILabel(frame: CGRect(x: tableView.frame.width*0.15, y: 0, width: tableView.frame.width*0.3, height: 30))
+        secondLabel.text = "편명"
+        secondLabel.font = UIFont.systemFont(ofSize: 12)
+        secondLabel.textColor = UIColor.mainBlue
+        secondLabel.textAlignment = NSTextAlignment.center
+        headerView.addSubview(secondLabel)
+        
+        let thirdLabel = UILabel(frame: CGRect(x: tableView.frame.width*0.45, y: 0, width: tableView.frame.width*0.3, height: 30))
+        thirdLabel.text = "도착지・경유지"
+        thirdLabel.font = UIFont.systemFont(ofSize: 12)
+        thirdLabel.textColor = UIColor.mainBlue
+        thirdLabel.textAlignment = NSTextAlignment.center
+        headerView.addSubview(thirdLabel)
+        
+        let fourthLabel = UILabel(frame: CGRect(x: tableView.frame.width*0.75, y: 0, width: tableView.frame.width*0.25, height: 30))
+        fourthLabel.text = "체크인・게이트"
+        fourthLabel.font = UIFont.systemFont(ofSize: 12)
+        fourthLabel.textColor = UIColor.mainBlue
+        fourthLabel.textAlignment = NSTextAlignment.center
+        headerView.addSubview(fourthLabel)
+
+        return headerView
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30 // 필요한 높이에 따라 조절
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return responseData?.response.body.items?.count ?? 0 + 1
+        return responseData?.response.body.items?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
