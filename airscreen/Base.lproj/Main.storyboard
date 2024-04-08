@@ -96,22 +96,27 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Zq-64-5lk">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fFD-FP-X38" customClass="NeumorphicButton" customModule="airscreen" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fFD-FP-X38">
                                                 <rect key="frame" x="138" y="10" width="120" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="120" id="13H-Zy-cwT"/>
                                                     <constraint firstAttribute="height" constant="40" id="vbs-D6-CMk"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <color key="tintColor" name="DarkBlueColor"/>
                                                 <menu key="menu" id="zk4-VC-mBG">
                                                     <children>
-                                                        <command title="Item 1" id="2gi-B0-B1o"/>
-                                                        <command title="Item 2" id="Vvt-Ko-HFy"/>
+                                                        <command title="제1터미널" id="2gi-B0-B1o"/>
+                                                        <command title="제2터미널" id="Vvt-Ko-HFy"/>
                                                     </children>
                                                 </menu>
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" name="DarkestBlueColor"/>
                                                 </state>
+                                                <buttonConfiguration key="configuration" style="gray" title="Button">
+                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="baseForegroundColor" name="DarkestBlueColor"/>
+                                                </buttonConfiguration>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="14"/>
@@ -127,36 +132,43 @@
                                                 <color key="textColor" name="MainBlueColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZw-q1-M8D" customClass="NeumorphicButton" customModule="airscreen" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZw-q1-M8D">
                                                 <rect key="frame" x="348" y="10" width="40" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="3Ka-y1-fpv"/>
                                                     <constraint firstAttribute="height" constant="40" id="clT-uy-3wx"/>
                                                 </constraints>
+                                                <color key="tintColor" name="DarkestBlueColor"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="↩︎"/>
+                                                <buttonConfiguration key="configuration" style="gray" image="arrow.clockwise" catalog="system" title=""/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="14"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fjj-A0-ADW" customClass="NeumorphicButton" customModule="airscreen" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fjj-A0-ADW">
                                                 <rect key="frame" x="263" y="10" width="80" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="3am-3i-lag"/>
                                                     <constraint firstAttribute="height" constant="40" id="Aay-e6-L5c"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <color key="tintColor" name="DarkBlueColor"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <menu key="menu" id="kdz-RZ-XQf">
                                                     <children>
-                                                        <command title="Item 1" id="RKR-lX-Dlg"/>
-                                                        <command title="Item 2" id="WN6-1y-XnW"/>
+                                                        <command title="A1" id="RKR-lX-Dlg"/>
+                                                        <command title="A2" id="WN6-1y-XnW"/>
                                                     </children>
                                                 </menu>
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" name="DarkestBlueColor"/>
                                                 </state>
+                                                <buttonConfiguration key="configuration" style="gray" title="A1">
+                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="baseForegroundColor" name="DarkestBlueColor"/>
+                                                </buttonConfiguration>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="14"/>
@@ -368,6 +380,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
         <image name="figure.walk.motion" catalog="system" width="128" height="112"/>
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
