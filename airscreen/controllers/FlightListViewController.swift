@@ -135,6 +135,13 @@ class FlightListViewController : UIViewController, UITableViewDataSource, UITabl
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let flightInfoViewController = self.storyboard?.instantiateViewController(identifier: "FlightInfoViewController") else {
+                return
+            }
+            present(flightInfoViewController, animated: true, completion: nil)
+    }
+    
     func convertDateFormat(rawDate: String?) -> String {
         guard let rawDate = rawDate, !rawDate.isEmpty else { return "" }
 
