@@ -563,6 +563,15 @@
                         <color key="backgroundColor" name="LightestBlueColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="ITi-QJ-ng5"/>
+                    <connections>
+                        <outlet property="airline" destination="khN-MC-ENp" id="6V4-Jb-55D"/>
+                        <outlet property="airport" destination="CjC-FM-vPa" id="i6g-fY-Shd"/>
+                        <outlet property="counter" destination="7fO-MV-4vG" id="sL6-I5-gUv"/>
+                        <outlet property="date" destination="6wE-av-MDW" id="6TN-rx-pfS"/>
+                        <outlet property="flightId" destination="aXC-Z3-iDg" id="4I3-tn-ujO"/>
+                        <outlet property="gate" destination="vf0-vV-7Y0" id="lfK-i0-LA2"/>
+                        <outlet property="terminal" destination="Zyq-5H-cPR" id="JYq-oL-DtI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eRB-Ur-geS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -15,7 +15,8 @@ class FlightListViewController : UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var terminalPopUpBtn: UIButton!
     @IBOutlet weak var counterPopUpBtn: UIButton!
     
-    var responseData: DepartingFlightsList?
+    var responseData: [FlightItem]?
+    var filteredData: [FlightItem] = []
     
     let terminals: [String] = ["제1터미널", "제2터미널"]
     let counters: [String] = [
@@ -52,18 +53,20 @@ class FlightListViewController : UIViewController, UITableViewDataSource, UITabl
         
         terminalPopUpBtn.menu = UIMenu(title: "터미널", children: terminals.map { item in
             UIAction(title: item) { (action) in
-                print("Terminal : \(item)")
+                self.filterData(terminal: action.title, counter: self.counterPopUpBtn.titleLabel!.text!)
+                self.tableView.reloadData()
             }
         })
         
         counterPopUpBtn.menu =  UIMenu(title: "카운터", children:  counters.map { item in
             UIAction(title: item) { (action) in
-                print("Counter : \(item)")
+                self.filterData(terminal: self.terminalPopUpBtn.titleLabel!.text!, counter: action.title)
+                self.tableView.reloadData()
             }
         })
 
         
-        getTest()
+        getFlightsList()
     }
     
     func function(selectedTerminal: String) {
@@ -115,31 +118,31 @@ class FlightListViewController : UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return responseData?.response.body.items?.count ?? 0
+        return responseData?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CustomTableViewCell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
         
-        if let flight = responseData?.response.body.items?[indexPath.row] {
-            
-            cell.scheduleTimeLabel.text = convertDateFormat(rawDate: flight.scheduleDateTime)
-            cell.changedTimeLabel.text = convertDateFormat(rawDate: flight.estimatedDateTime)
-            cell.flightIdLabel.text = flight.flightId
-            cell.airportLabel.text = flight.airport
-            cell.counterLabel.text = flight.chkinrange
-            cell.gateLabel.text = flight.gatenumber
-            cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 0.6) : UIColor.lightestBlue
-        }
-        
+        let flight = filteredData[indexPath.row]
+        cell.scheduleTimeLabel.text = convertDateFormat(rawDate: flight.scheduleDateTime)
+        cell.changedTimeLabel.text = convertDateFormat(rawDate: flight.estimatedDateTime)
+        cell.flightIdLabel.text = flight.flightId
+        cell.airportLabel.text = flight.airport
+        cell.counterLabel.text = flight.chkinrange
+        cell.gateLabel.text = flight.gatenumber
+        cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 0.6) : UIColor.lightestBlue
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let flightInfoViewController = self.storyboard?.instantiateViewController(identifier: "FlightInfoViewController") else {
-                return
+        
+        let selectedData = self.filteredData[indexPath.row]
+        
+        if let flightInfoViewController = self.storyboard?.instantiateViewController(identifier: "FlightInfoViewController") as? FlightInfoViewController {
+                flightInfoViewController.flightData = selectedData
+                present(flightInfoViewController, animated: true, completion: nil)
             }
-            present(flightInfoViewController, animated: true, completion: nil)
     }
     
     func convertDateFormat(rawDate: String?) -> String {
@@ -155,17 +158,16 @@ class FlightListViewController : UIViewController, UITableViewDataSource, UITabl
       return "\(date):\(time)"
     }
     
-    func getTest() {
+    func getFlightsList() {
         let url = "http://apis.data.go.kr/B551177/StatusOfPassengerFlightsDeOdp/getPassengerDeparturesDeOdp"
-        
         guard let serviceKey: String = Bundle.main.flightInfoListApiKey else {return}
-        var request: Parameters = [
+        let request: Parameters = [
             "pageNo": 1,
-            "numOfRows": 10,
+            "numOfRows": 4000,
             "type": "json",
             "searchday": DateFormatter().string(from: Date()),
             "inqtimechcd": "E",
-            "serviceKey": serviceKey
+            "serviceKey": serviceKey,
         ]
         AF.request(url,
                    method: .get,
@@ -175,9 +177,10 @@ class FlightListViewController : UIViewController, UITableViewDataSource, UITabl
             .validate()
             .responseDecodable(of: DepartingFlightsList.self) { response in
                 switch response.result {
-                case .success(let DepartingFlightsList):
-                    print("Received flightInfoList: \(DepartingFlightsList)")
-                    self.responseData = DepartingFlightsList
+                case .success(let departingFlightsList):
+                    print("Received flightInfoList: \(departingFlightsList)")
+                    self.responseData = departingFlightsList.response.body.items
+                    self.filterData(terminal: self.terminalPopUpBtn.titleLabel!.text!, counter: self.counterPopUpBtn.titleLabel!.text!)
                     self.tableView.reloadData()
                 case .failure(let error):
                     print("API 요청 실패: \(error.localizedDescription)")
@@ -185,4 +188,59 @@ class FlightListViewController : UIViewController, UITableViewDataSource, UITabl
         }
     }
     
+    func filterData(terminal : String, counter : String) {
+        guard let responseData = self.responseData else {return}
+        self.filteredData =  responseData.filter { item in
+            
+            // terminal filter
+            guard let terminalid = item.terminalid else {return false}
+            switch terminal {
+                case "제1터미널":
+                if !(["P01", "P02"].contains(terminalid)) {
+                    return false
+                }
+                case "제2터미널":
+                if (terminalid != "P03") {
+                    return false
+                }
+            default:
+                return false
+            }
+
+            if let chkinrange = item.chkinrange, chkinrange.contains("-"), chkinrange.count >= 7 {
+                
+                guard let firstCharUnicode = chkinrange.unicodeScalars.first?.value,
+                      let lastCharUnicode = chkinrange.unicodeScalars.dropFirst(4).first?.value
+                       else {return false}
+                
+                let firstCodeSubstring = chkinrange.dropFirst().prefix(2)
+                guard let firstCode = Int(firstCodeSubstring) else {return false}
+                
+                let lastCodeSubstring = chkinrange.dropFirst(5).prefix(2)
+                guard let lastCode = Int(lastCodeSubstring) else {return false}
+
+                let selectChkChar = counter.unicodeScalars.first?.value ?? 0
+                let selectChkNum = counter.count > 1 ? Int(String(counter[counter.index(counter.startIndex, offsetBy: 1)])) : nil
+
+                if selectChkChar < firstCharUnicode || selectChkChar > lastCharUnicode {
+                    return false
+                }
+
+                if let selectChkNum = selectChkNum {
+                    if selectChkChar == firstCharUnicode && selectChkNum == 1 && firstCode > 18 {
+                        return false
+                    }
+                    if selectChkChar == lastCharUnicode && selectChkNum == 2 && lastCode <= 18 {
+                        return false
+                    }
+                }
+            } else {
+                if let chkinrange = item.chkinrange, !chkinrange.contains(counter.first!) {
+                    return false
+                }
+            }
+
+            return true
+        }
+    }
 }

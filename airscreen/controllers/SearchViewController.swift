@@ -16,10 +16,11 @@ class SearchViewController : UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var searchBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBAction func searchBtnAction(_ sender: Any) {
-        getTest();
+        guard let keyword = textField.text else {return}
+        getFlightsList(keyword: keyword);
     }
     
-    var responseData: DepartingFlightsList?
+    var responseData: [FlightItem]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,7 @@ class SearchViewController : UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CustomTableViewCell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
         
-        if let flight = responseData?.response.body.items?[indexPath.row] {
+        if let flight = responseData?[indexPath.row] {
             
             cell.scheduleTimeLabel.text = convertDateFormat(rawDate: flight.scheduleDateTime)
             cell.changedTimeLabel.text = convertDateFormat(rawDate: flight.estimatedDateTime)
@@ -49,7 +50,7 @@ class SearchViewController : UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return responseData?.response.body.items?.count ?? 0
+        return responseData?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -57,10 +58,14 @@ class SearchViewController : UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let flightInfoViewController = self.storyboard?.instantiateViewController(identifier: "FlightInfoViewController") else {
-                return
+        
+        guard let selectedDatas = self.responseData else { return }
+        let selectedData = selectedDatas[indexPath.row]
+        
+        if let flightInfoViewController = self.storyboard?.instantiateViewController(identifier: "FlightInfoViewController") as? FlightInfoViewController {
+                flightInfoViewController.flightData = selectedData
+                present(flightInfoViewController, animated: true, completion: nil)
             }
-            present(flightInfoViewController, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -98,13 +103,12 @@ class SearchViewController : UIViewController, UITableViewDataSource, UITableVie
         return headerView
     }
     
-    func getTest() {
+    func getFlightsList(keyword : String) {
         let url = "http://apis.data.go.kr/B551177/StatusOfPassengerFlightsDeOdp/getPassengerDeparturesDeOdp"
-        
         guard let serviceKey: String = Bundle.main.flightInfoListApiKey else {return}
-        var request: Parameters = [
+        let request: Parameters = [
             "pageNo": 1,
-            "numOfRows": 10,
+            "numOfRows": 4000,
             "type": "json",
             "searchday": DateFormatter().string(from: Date()),
             "inqtimechcd": "E",
@@ -118,9 +122,16 @@ class SearchViewController : UIViewController, UITableViewDataSource, UITableVie
             .validate()
             .responseDecodable(of: DepartingFlightsList.self) { response in
                 switch response.result {
-                case .success(let DepartingFlightsList):
-                    print("Received flightInfoList: \(DepartingFlightsList)")
-                    self.responseData = DepartingFlightsList
+                case .success(let departingFlightsList):
+                    print("Received flightInfoList: \(departingFlightsList)")
+                    self.responseData = departingFlightsList.response.body.items?.filter{
+                        (item) -> Bool in
+                        if let flightId = item.flightId {
+                            return flightId.contains(keyword.uppercased())
+                        } else {
+                            return false
+                        }
+                    }
                     self.tableView.reloadData()
                 case .failure(let error):
                     print("API 요청 실패: \(error.localizedDescription)")
