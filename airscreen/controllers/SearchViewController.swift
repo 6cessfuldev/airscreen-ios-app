@@ -120,11 +120,10 @@ class SearchViewController : UIViewController, UITableViewDataSource, UITableVie
                    encoding: URLEncoding.default,
                    headers: ["Content-Type":"application/json", "Accept":"application/json"])
             .validate()
-            .responseDecodable(of: DepartingFlightsList.self) { response in
+            .responseDecodable(of: APIResponse<DepartingFlightsList>.self) { response in
                 switch response.result {
-                case .success(let departingFlightsList):
-                    print("Received flightInfoList: \(departingFlightsList)")
-                    self.responseData = departingFlightsList.response.body.items?.filter{
+                case .success(let apiResponse):
+                    self.responseData = apiResponse.response.body.items?.filter{
                         (item) -> Bool in
                         if let flightId = item.flightId {
                             return flightId.contains(keyword.uppercased())

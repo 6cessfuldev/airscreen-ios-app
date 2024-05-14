@@ -8,20 +8,6 @@
 import Foundation
 
 struct DepartingFlightsList: Codable {
-    let response: Response
-}
-
-struct Response: Codable {
-    let header: Header
-    let body: Body
-}
-
-struct Header: Codable {
-    let resultCode: String
-    let resultMsg: String
-}
-
-struct Body: Codable {
     let numOfRows: Int?
     let pageNo: Int?
     let totalCount: Int?

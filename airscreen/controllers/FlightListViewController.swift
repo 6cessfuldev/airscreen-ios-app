@@ -175,11 +175,11 @@ class FlightListViewController : UIViewController, UITableViewDataSource, UITabl
                    encoding: URLEncoding.default,
                    headers: ["Content-Type":"application/json", "Accept":"application/json"])
             .validate()
-            .responseDecodable(of: DepartingFlightsList.self) { response in
+            .responseDecodable(of: APIResponse<DepartingFlightsList>.self) { response in
                 switch response.result {
-                case .success(let departingFlightsList):
-                    print("Received flightInfoList: \(departingFlightsList)")
-                    self.responseData = departingFlightsList.response.body.items
+                case .success(let apiResponse):
+                    print("Received flightInfoList: \(apiResponse)")
+                    self.responseData = apiResponse.response.body.items
                     self.filterData(terminal: self.terminalPopUpBtn.titleLabel!.text!, counter: self.counterPopUpBtn.titleLabel!.text!)
                     self.tableView.reloadData()
                 case .failure(let error):

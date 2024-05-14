@@ -61,11 +61,21 @@
                                     <navigationItem title="오늘의 출발 승객 예고" id="iPk-Vo-rMH"/>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ytY-Ts-JxB" customClass="CountingLabel" customModule="airscreen" customModuleProvider="target">
+                                <rect key="frame" x="79" y="242" width="234" height="152"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <color key="textColor" name="LightestBlueColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="DarkBlueColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="승객 예고" image="figure.walk.motion" catalog="system" id="R1m-FM-oBm"/>
+                    <connections>
+                        <outlet property="countingLabel" destination="ytY-Ts-JxB" id="bI3-G4-deR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
