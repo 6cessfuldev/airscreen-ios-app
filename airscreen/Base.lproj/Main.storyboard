@@ -106,7 +106,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Zq-64-5lk">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24-03-10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kwm-3m-hac">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kwm-3m-hac">
                                                 <rect key="frame" x="5" y="10" width="128" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="x1b-ZK-uEE"/>
@@ -344,6 +344,7 @@
                     <tabBarItem key="tabBarItem" title="목록" image="list.bullet.rectangle" catalog="system" id="yf6-Jz-vsN"/>
                     <connections>
                         <outlet property="counterPopUpBtn" destination="Fjj-A0-ADW" id="5UO-ZG-Egx"/>
+                        <outlet property="lastUpdateDate" destination="Kwm-3m-hac" id="fRE-Xn-qnE"/>
                         <outlet property="tableView" destination="H8J-Tz-yhe" id="qeQ-SA-bvx"/>
                         <outlet property="terminalPopUpBtn" destination="fFD-FP-X38" id="ipc-zr-JYH"/>
                     </connections>

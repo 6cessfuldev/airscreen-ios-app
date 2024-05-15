@@ -14,6 +14,7 @@ class FlightListViewController : UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var terminalPopUpBtn: UIButton!
     @IBOutlet weak var counterPopUpBtn: UIButton!
+    @IBOutlet weak var lastUpdateDate: UILabel!
     
     var responseData: [FlightItem]?
     var filteredData: [FlightItem] = []
@@ -64,7 +65,6 @@ class FlightListViewController : UIViewController, UITableViewDataSource, UITabl
                 self.tableView.reloadData()
             }
         })
-
         
         getFlightsList()
     }
@@ -182,6 +182,10 @@ class FlightListViewController : UIViewController, UITableViewDataSource, UITabl
                     self.responseData = apiResponse.response.body.items
                     self.filterData(terminal: self.terminalPopUpBtn.titleLabel!.text!, counter: self.counterPopUpBtn.titleLabel!.text!)
                     self.tableView.reloadData()
+                    
+                    let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd"
+                    self.lastUpdateDate.text = dateFormatter.string(from: Date())
                 case .failure(let error):
                     print("API 요청 실패: \(error.localizedDescription)")
                 }
