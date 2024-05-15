@@ -27,6 +27,7 @@
 		9D97700A2B847DEA00AE0063 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D9770092B847DEA00AE0063 /* Secrets.plist */; };
 		9D9770122B8482F900AE0063 /* Bundle+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9770112B8482F900AE0063 /* Bundle+Extentions.swift */; };
 		9DCC8C332BF253E700806139 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9DCC8C322BF253E700806139 /* GoogleService-Info.plist */; };
+		9DCC8C362BF4BF4300806139 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC8C352BF4BF4300806139 /* DataService.swift */; };
 		9DF27B942B752E2500C10404 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF27B932B752E2500C10404 /* MainTabBarController.swift */; };
 		E6DDB6BD656253C78A4582D5 /* Pods_airscreen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A359C897E8246D7AF5DFDF1 /* Pods_airscreen.framework */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		9D9770092B847DEA00AE0063 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		9D9770112B8482F900AE0063 /* Bundle+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extentions.swift"; sourceTree = "<group>"; };
 		9DCC8C322BF253E700806139 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9DCC8C352BF4BF4300806139 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		9DF27B932B752E2500C10404 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		EC6B152419F5A1FA666D324F /* Pods-airscreen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-airscreen.release.xcconfig"; path = "Target Support Files/Pods-airscreen/Pods-airscreen.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +126,7 @@
 				9D8B22E52B83AF7400054D4B /* DepartingFlightsList.swift */,
 				9D35C77B2BD7998A00FA77AC /* PassengerNoticeInfo.swift */,
 				9D35C77D2BD79CD400FA77AC /* APIResponse.swift */,
+				9DCC8C352BF4BF4300806139 /* DataService.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				9D8B22E62B83AF7400054D4B /* DepartingFlightsList.swift in Sources */,
 				9D23817D2BC4380800CECB89 /* DropDownButton.swift in Sources */,
 				9D3FD1772B9DA1DD000DFAD0 /* NeumorphicButton.swift in Sources */,
+				9DCC8C362BF4BF4300806139 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

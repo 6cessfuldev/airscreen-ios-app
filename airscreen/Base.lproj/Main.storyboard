@@ -367,13 +367,6 @@
                                 <color key="textColor" name="DarkestBlueColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nRA-cG-sgI">
-                                <rect key="frame" x="337" y="11" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" name="DarkestBlueColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="arrow.clockwise" catalog="system" title=""/>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2QX-pv-Jvd">
                                 <rect key="frame" x="36" y="63" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -575,6 +568,7 @@
                     <navigationItem key="navigationItem" id="ITi-QJ-ng5"/>
                     <connections>
                         <outlet property="airline" destination="khN-MC-ENp" id="6V4-Jb-55D"/>
+                        <outlet property="airlineCall" destination="eDH-uf-UXh" id="qZF-O7-TtB"/>
                         <outlet property="airport" destination="CjC-FM-vPa" id="i6g-fY-Shd"/>
                         <outlet property="counter" destination="7fO-MV-4vG" id="sL6-I5-gUv"/>
                         <outlet property="date" destination="6wE-av-MDW" id="6TN-rx-pfS"/>
