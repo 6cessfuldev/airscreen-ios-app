@@ -15,6 +15,9 @@ class FlightListViewController : UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var terminalPopUpBtn: UIButton!
     @IBOutlet weak var counterPopUpBtn: UIButton!
     @IBOutlet weak var lastUpdateDate: UILabel!
+    @IBAction func reloadBtnAction(_ sender: UIButton) {
+        getFlightsList()
+    }
     
     var responseData: [FlightItem]?
     var filteredData: [FlightItem] = []
@@ -184,7 +187,7 @@ class FlightListViewController : UIViewController, UITableViewDataSource, UITabl
                     self.tableView.reloadData()
                     
                     let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "yyyy-MM-dd"
+                    dateFormatter.dateFormat = "yyyy-MM-dd\nHH:mm:ss"
                     self.lastUpdateDate.text = dateFormatter.string(from: Date())
                 case .failure(let error):
                     print("API 요청 실패: \(error.localizedDescription)")
