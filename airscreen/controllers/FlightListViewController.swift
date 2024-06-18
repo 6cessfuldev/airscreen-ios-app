@@ -164,6 +164,7 @@ class FlightListViewController : UIViewController, UITableViewDataSource, UITabl
     func getFlightsList() {
         let url = "http://apis.data.go.kr/B551177/StatusOfPassengerFlightsDeOdp/getPassengerDeparturesDeOdp"
         guard let serviceKey: String = Bundle.main.flightInfoListApiKey else {return}
+        
         let request: Parameters = [
             "pageNo": 1,
             "numOfRows": 4000,
@@ -183,6 +184,9 @@ class FlightListViewController : UIViewController, UITableViewDataSource, UITabl
                 case .success(let apiResponse):
                     print("Received flightInfoList: \(apiResponse)")
                     self.responseData = apiResponse.response.body.items
+                    
+                    self.storeCacheData(data: apiResponse.response.body)
+                
                     self.filterData(terminal: self.terminalPopUpBtn.titleLabel!.text!, counter: self.counterPopUpBtn.titleLabel!.text!)
                     self.tableView.reloadData()
                     
@@ -248,6 +252,18 @@ class FlightListViewController : UIViewController, UITableViewDataSource, UITabl
             }
 
             return true
+        }
+    }
+    
+    func storeCacheData(data: DepartingFlightsList) {
+        let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+        let currentDate = dateFormatter.string(from: Date())
+        let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let cachedFilePath = documentURL.appendingPathComponent("cachedFlightData_\(currentDate).json")
+            
+        if let encodedData = try? JSONEncoder().encode(data) {
+            try? encodedData.write(to: cachedFilePath)
         }
     }
 }
