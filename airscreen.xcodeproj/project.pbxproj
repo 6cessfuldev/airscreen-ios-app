@@ -18,6 +18,7 @@
 		9D35C77E2BD79CD400FA77AC /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D35C77D2BD79CD400FA77AC /* APIResponse.swift */; };
 		9D35C7802BD7A0E500FA77AC /* CountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D35C77F2BD7A0E500FA77AC /* CountingLabel.swift */; };
 		9D3FD1772B9DA1DD000DFAD0 /* NeumorphicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3FD1762B9DA1DD000DFAD0 /* NeumorphicButton.swift */; };
+		9D5DB8D72C258A12007739BB /* TypeaheadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5DB8D62C258A12007739BB /* TypeaheadTableViewCell.swift */; };
 		9D8B22E62B83AF7400054D4B /* DepartingFlightsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8B22E52B83AF7400054D4B /* DepartingFlightsList.swift */; };
 		9D917BBF2B80D94B00599784 /* PassengerNoticeViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D917BBE2B80D94B00599784 /* PassengerNoticeViewContoller.swift */; };
 		9D917BC12B80DC9700599784 /* FlightListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D917BC02B80DC9700599784 /* FlightListViewController.swift */; };
@@ -48,6 +49,7 @@
 		9D35C77D2BD79CD400FA77AC /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		9D35C77F2BD7A0E500FA77AC /* CountingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingLabel.swift; sourceTree = "<group>"; };
 		9D3FD1762B9DA1DD000DFAD0 /* NeumorphicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphicButton.swift; sourceTree = "<group>"; };
+		9D5DB8D62C258A12007739BB /* TypeaheadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeaheadTableViewCell.swift; sourceTree = "<group>"; };
 		9D8B22E52B83AF7400054D4B /* DepartingFlightsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartingFlightsList.swift; sourceTree = "<group>"; };
 		9D917BBE2B80D94B00599784 /* PassengerNoticeViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerNoticeViewContoller.swift; sourceTree = "<group>"; };
 		9D917BC02B80DC9700599784 /* FlightListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				9D3FD1762B9DA1DD000DFAD0 /* NeumorphicButton.swift */,
 				9D23817C2BC4380800CECB89 /* DropDownButton.swift */,
 				9D35C77F2BD7A0E500FA77AC /* CountingLabel.swift */,
+				9D5DB8D62C258A12007739BB /* TypeaheadTableViewCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				9D917BC12B80DC9700599784 /* FlightListViewController.swift in Sources */,
 				9D128EBE2B725B8D009AEDBE /* SceneDelegate.swift in Sources */,
 				9DF27B942B752E2500C10404 /* MainTabBarController.swift in Sources */,
+				9D5DB8D72C258A12007739BB /* TypeaheadTableViewCell.swift in Sources */,
 				9D8B22E62B83AF7400054D4B /* DepartingFlightsList.swift in Sources */,
 				9D23817D2BC4380800CECB89 /* DropDownButton.swift in Sources */,
 				9D3FD1772B9DA1DD000DFAD0 /* NeumorphicButton.swift in Sources */,
@@ -484,7 +488,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = D6H3TKX72M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = airscreen/Info.plist;
@@ -519,7 +523,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = D6H3TKX72M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = airscreen/Info.plist;
